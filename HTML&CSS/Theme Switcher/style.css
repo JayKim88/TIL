@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/* light theme color */
+body[data-theme="light"]{
+  --color-1: rgb(196, 220, 241);
+  --color-2: white;
+  --color-3: rgb(200,200,200);
+  --color-4: rgb(80, 82, 110);
+}
+/* Dark theme colors */
+body[data-theme="dark"]{
+  --color-1: #1E1F26;
+  --color-2: #292c33;
+  --color-3: rgb(39,40,42);
+  --color-4: rgb(186, 186, 200);
+}
+body{
+  font-family: 'Nerko One', cursive;
+  color: var(--color-4);
+}
+section{
+  background-color: var(--color-1);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container{
+  width: 90%;
+  margin: 0 auto;
+  background-color: var(--color-2);
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 500px;
+}
+h1{
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+p{
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+button{
+  background-color: var(--color-4);
+  padding: 10px 30px;
+  border: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--color-2);
+  border-radius: 4px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.theme-switcher{
+  position: absolute;
+  right: 30px;
+  top: 10px;
+}
+input{
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+/* input checkbox를 숨깁니다. label과 연결되어, checked unchecked 인지가 가능합니다. */
+label{
+  display: block;
+  text-indent: -9999px;
+  /* 문자 내어쓰기 => 문자 없애기.*/
+  height: 30px;
+  width: 60px;
+  background-color: aliceblue;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: .5s ease background-color;
+}
+/* 라벨의 문자를 숨기고 "버튼 모양"(button's container)을 만듭니다. */
+label::after{
+  position: absolute;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: rgb(16, 38, 87);
+  border-radius: 50px;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  transition: .5s ease;
+}
+/* 
+::after 라는 것은 일종의 덮어씌우기 효과.
+"switch ball" 만드는 방법 입니다. 
+*/
+input:checked + label{
+  background-color: rgb(25, 26, 40);
+  border: 2px solid white;
+}
+/* 
+보이지 않는 checkbox가 눌리면 라벨의 색상이 바뀝니다. 
+button container 색상이 바뀝니다.
+*/
+input:checked + label::after{
+  background-color: aliceblue;
+  left: calc(100% - 25px);
+  /* ball의 width 20px, left: 5px total 25px*/
+}
+/* button ball의 색상이 바뀝니다. */
+/* button ball의 위치가 바뀌는 것처럼 만듭니다. */
