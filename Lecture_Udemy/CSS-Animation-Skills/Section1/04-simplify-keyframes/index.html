@@ -18,5 +18,18 @@
         <img src="images/downarrow.png" width="50">
       </section>
     </header>
+
+<script>
+  document.body.className += "js-loading";
+  window.addEventListener('load', showpage, false);
+  // console.log(document.body.className)
+  function showpage() {
+    document.body.className = document.body.className.replace("js-loading", "")
+    // console.log(document.body.className)
+  }
+  // console.log(document.body.className)
+
+</script>
+
   </body>
 </html>
