@@ -1,0 +1,52 @@
+.title-tooltip {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #457dfb;
+  border-radius: 0.1em;
+  bottom: 2em;
+  font-size: 0.7em;
+  left: calc(50% - 8em);
+  opacity: 0;
+  padding: 0.25em 0.5em;
+  position: absolute;
+  text-align: center;
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
+  -webkit-transition: visibility 0s 0.5s, opacity 0.2s ease-out,
+    -webkit-transform 0.5s cubic-bezier(0, 1, 0.5, 1);
+  transition: visibility 0s 0.5s, opacity 0.2s ease-out,
+    -webkit-transform 0.5s cubic-bezier(0, 1, 0.5, 1);
+  transition: visibility 0s 0.5s, opacity 0.2s ease-out,
+    transform 0.5s cubic-bezier(0, 1, 0.5, 1);
+  transition: visibility 0s 0.5s, opacity 0.2s ease-out,
+    transform 0.5s cubic-bezier(0, 1, 0.5, 1),
+    -webkit-transform 0.5s cubic-bezier(0, 1, 0.5, 1);
+  visibility: hidden;
+  width: 16em;
+  z-index: 10;
+}
+
+.title-tooltip::after {
+  border-color: #457dfb transparent;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 0.2em 0.2em 0 0.2em;
+  bottom: -0.2em;
+  content: "";
+  left: calc(50% - 0.2em);
+  position: absolute;
+  width: 0;
+}
+
+.anchor-tooltip:hover .title-tooltip {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transition: opacity 0.2s ease-out,
+    -webkit-transform 0.5s cubic-bezier(0, 1, 0.5, 1);
+  transition: opacity 0.2s ease-out,
+    -webkit-transform 0.5s cubic-bezier(0, 1, 0.5, 1);
+  transition: opacity 0.2s ease-out, transform 0.5s cubic-bezier(0, 1, 0.5, 1);
+  transition: opacity 0.2s ease-out, transform 0.5s cubic-bezier(0, 1, 0.5, 1),
+    -webkit-transform 0.5s cubic-bezier(0, 1, 0.5, 1);
+  visibility: visible;
+}
